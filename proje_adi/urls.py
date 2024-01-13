@@ -16,10 +16,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+from rest_framework.permissions import AllowAny
+from django.urls import path, include
 
 from uygulama_adi.views.products_views import product_list ,product_detail, update_product_detail,delete_product, create_product
 from uygulama_adi.views.stocks_views import stock_list,get_stock_detail,get_stock_product_detail,stock_create,stock_update,stock_delete
 from uygulama_adi.views.user_views import user_login, user_logout
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="API Dokümantasyonu",
+        default_version='v1',
+        description="API için otomatik oluşturulmuş dokümantasyon",
+    ),
+    public=True,
+    permission_classes=(AllowAny,),
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -44,4 +58,7 @@ urlpatterns = [
     path('user-login/', user_login, name='user-login'),
     path('user-logout/', user_logout, name='user-logout'),
 
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path('swagger.json', schema_view.without_ui(cache_timeout=0), name='schema-json'),
 ]

@@ -6,12 +6,12 @@ class IsAuthenticated (permissions.BasePermission):
 
 class IsStoreManager(permissions.BasePermission):
     def has_permission(self, request, view):
-        return request.user.is_authenticated and request.user.role == 'store_manager'
+        return request.user.is_authenticated
 
 class IsCentralOfficeEmployee(permissions.BasePermission):
     def has_permission(self, request, view):
-        return request.user.is_authenticated and request.user.role == 'central_office_employee'
+        return request.user.is_authenticated
 
 class IsWarehouseEmployee(permissions.BasePermission):
     def has_permission(self, request, view):
-        return request.user.is_authenticated and request.user.role == 'warehouse_employee' 
+        return request.user.is_authenticated

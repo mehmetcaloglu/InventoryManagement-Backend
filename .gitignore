@@ -1,0 +1,23 @@
+*.pyc
+__pycache__/
+db.sqlite3
+/media/
+
+# virtual environment
+newenv/
+venv/
+.env
+
+# local development
+*.env
+*.sqlite3
+db.sqlite3
+*.pyc
+```
+I have tried to add the following to my .gitignore file:
+```bash
+# virtual environment
+newenv/
+venv/
+.env
+```

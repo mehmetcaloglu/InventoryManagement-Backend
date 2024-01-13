@@ -6,8 +6,6 @@ from django.dispatch import receiver
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    role = models.CharField(max_length=30)
-
     def __str__(self):
         return self.user.username
 
@@ -23,7 +21,6 @@ def create_user_profile(sender, instance, created, **kwargs):
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
-    instance.userprofile.role = instance.userprofile.role
     instance.userprofile.save()
 
 
