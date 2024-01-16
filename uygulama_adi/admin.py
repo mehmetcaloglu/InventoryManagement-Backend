@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
-from uygulama_adi.models import UserProfile,Stock,Category,Depot,Order,Product,Sale,SupplierOrder,User # Replace 'your_app' with your actual app name
+from uygulama_adi.models import UserProfile,Stock,Category,Depot,Order,Product,Sale,User # Replace 'your_app' with your actual app name
 
 
 class UserProfileInline(admin.StackedInline):
@@ -23,5 +23,4 @@ admin.site.register(Depot)
 admin.site.register(Order)
 admin.site.register(Product)
 admin.site.register(Sale)
-admin.site.register(SupplierOrder)
 

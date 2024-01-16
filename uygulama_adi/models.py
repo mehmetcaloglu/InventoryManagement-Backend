@@ -179,15 +179,6 @@ class Supplier(models.Model):
     def __str__(self):
         return self.name
 
-class SupplierOrder(models.Model):
-    supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField()
-    order_date = models.DateTimeField(auto_now_add=True)
-    expected_delivery = models.DateTimeField()
-
-    def __str__(self):
-        return f"Supplier Order {self.id} for {self.product.name}"
 
 class Transaction(models.Model):
     source_depot = models.ForeignKey(Depot, related_name='source_transactions', on_delete=models.CASCADE)
