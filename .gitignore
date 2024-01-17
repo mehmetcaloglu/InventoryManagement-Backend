@@ -7,7 +7,6 @@ __pycache__/
 *.pyd
 *.so
 *.dll
-db.sqlite3
 /media/
 
 # virtual environment
@@ -18,8 +17,6 @@ venv/
 
 # local development
 *.env
-*.sqlite3
-db.sqlite3
 *.pyc
 ```
 I have tried to add the following to my .gitignore file:
