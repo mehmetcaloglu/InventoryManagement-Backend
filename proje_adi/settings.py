@@ -157,9 +157,13 @@ REST_FRAMEWORK = {
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# Dil ayarı
+# Türkçe karakter desteği için bu dil ayarını kullanın.
+LANGUAGE_CODE = 'tr-TR'
 
-TIME_ZONE = 'UTC'
+# Zaman dilimi ayarı
+# Türkiye'nin saat dilimini ayarlayın.
+TIME_ZONE = 'Europe/Istanbul'
 
 USE_I18N = True
 
