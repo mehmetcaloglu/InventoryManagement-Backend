@@ -24,6 +24,8 @@ from django.urls import path, include
 from uygulama_adi.views.products_views import product_list ,product_detail, update_product_detail,delete_product, create_product
 from uygulama_adi.views.stocks_views import stock_list,get_stock_detail,get_stock_product_detail,stock_create,stock_update,stock_delete
 from uygulama_adi.views.user_views import user_login, user_logout
+from uygulama_adi.views.categories_views import get_categories 
+from uygulama_adi.views.sales_views import get_sales,get_sales_by_store
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -57,6 +59,11 @@ urlpatterns = [
 
     path('user-login/', user_login, name='user-login'),
     path('user-logout/', user_logout, name='user-logout'),
+
+    path('categories/', get_categories, name='get-categories'),
+
+    path('sales/store/<str:store_name>/page/<int:page>/', get_sales_by_store, name='get_sales_by_store'),
+    path('sales/', get_sales, name='get_sales'),
 
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
